@@ -1,6 +1,7 @@
 from utils import initialize_database, add_quotes
 from generator import QuoteGenerator
 from datetime import datetime
+import sqlite3
 
 
 def main():
@@ -8,6 +9,8 @@ def main():
     print("Initializing database... Please wait.")
     initialize_database()
     print("Database initialized successfully.")
+
+    conn = sqlite3.connect("quotes.db")
 
     while True:
         quote_date = input("Please enter quote date (YYYY/MM/DD): ").strip()
@@ -31,9 +34,10 @@ def main():
             continue
     else:
         print("Invalid date format. Please use YYYY/MM/DD, YYYY-MM-DD or YYYY.MM.DD.")
+        conn.close()
         return
 
-    add_quotes(quote_date, author, quote)
+    add_quotes(conn, quote_date, author, quote)
 
     generator = QuoteGenerator()
     generator.generate(
@@ -44,6 +48,8 @@ def main():
     )
     print("Quote generated successfully! Check output folder for image.")
 
+    conn.close()
+    
 if __name__ == "__main__":
     main()
 
