@@ -7,7 +7,7 @@ import sqlite3
 def main():
     print("Welcome to the Quote Generator!")
     print("Initializing database... Please wait.")
-    initialize_database()
+    initialize_database("quotes.db")
     print("Database initialized successfully.")
 
     conn = sqlite3.connect("quotes.db")
@@ -49,7 +49,7 @@ def main():
     print("Quote generated successfully! Check output folder for image.")
 
     conn.close()
-    
+
 if __name__ == "__main__":
     main()
 

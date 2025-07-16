@@ -12,8 +12,8 @@ def quote_exists(conn, quote_text):
     return cursor.fetchone() is not None
 
 def scrape_quotes():
-    initialize_database()
-    conn = sqlite3.connect(DB_path)
+    initialize_database("quotes.db")
+    conn = sqlite3.connect("quotes.db")
 
     page = 1
     current_day = 1
@@ -42,7 +42,7 @@ def scrape_quotes():
                 print(f"Quote already exists: {text}")
                 continue
 
-            add_quotes(conn, author, text)
+            add_quotes(conn,date, author, text)
             print(f"Quote added: {text} by {author} on {date}")
 
         page += 1
