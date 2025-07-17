@@ -1,6 +1,8 @@
 from PIL import Image, ImageDraw, ImageFont
 from textwrap import wrap
 import os
+from datetime import datetime
+
 
 class QuoteGenerator:
     def __init__(self, background_image="quote_template_background.jpg", output_folder="outputs"):

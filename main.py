@@ -39,9 +39,11 @@ def main():
 
     add_quotes(conn, quote_date, author, quote)
 
+    today = datetime.now().strftime("%Y.%m.%d")
+    
     generator = QuoteGenerator()
     generator.generate(
-        date = quote_date,
+        date = today,
         author = author,
         quote = quote,
         output_format = "jpeg"
