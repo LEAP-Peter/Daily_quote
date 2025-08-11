@@ -1,1 +1,44 @@
+Quote Generator
+
+简介
+**Quote Generator** 是一个基于 Python 的语录图片生成器。  
+它支持从手动输入、本地数据库、以及指定网站爬取语录，并自动生成带背景图片的语录海报。  
+
+生成的图片可以直接用于社交媒体、PPT、文章配图等场景。
+
+---
+
+功能
+1. **Manual input（手动输入）**
+   - 输入日期、作者、语录，立即生成图片并保存到本地。
+   - 日期支持以下格式：
+     ```
+     20250811
+     2025/08/11
+     2025.08.11
+     ```
+
+2. **From database（从数据库生成）**
+   - 从 `quotes.db` 中随机展示 5 条语录供选择。
+   - 按 `n` 可换一批语录，按 ID 生成图片。
+   - 自动跳过数据库中已存在的语录。
+
+3. **Scrape from website（爬取网站）**
+   - 输入一个包含 quote 的网页地址，程序会爬取该网站的所有语录。
+   - 仅支持含 `quote` 的网站，若不符合则会提示不可爬取。
+   - 已存在于数据库的语录会自动跳过，避免重复。
+
+
+
+---
+
+安装与运行
+## 🚀 快速开始
+
+1. 克隆仓库
+```bash
+git clone https://github.com/<your-username>/quote_generator.git
+cd quote_generator
+pip install -r requirements.txt
+python main.py
 
