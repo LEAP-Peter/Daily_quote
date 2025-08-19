@@ -147,7 +147,7 @@ class QuoteGenerator:
         w = bbox[2] - bbox[0]
         h = bbox[3] - bbox[1]
         quote_x = (W - w) / 2
-        quote_y = date_y + 100
+        quote_y = date_y + 150
         draw.multiline_text(
             (quote_x, quote_y),
             quote_wrapped,
